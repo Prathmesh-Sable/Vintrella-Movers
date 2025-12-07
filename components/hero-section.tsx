@@ -27,9 +27,9 @@ export default function HeroSection() {
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6"
             style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.7), 0 0 20px rgba(0,0,0,0.5)" }}
           >
-            <span className="font-serif">We Care Your Valuables</span>
+            <span className="font-serif">"We Care Your Valuables"</span>
             <br />
-            <span className="text-white">Vintrella Movers</span>
+            <span className="text-white text-2xl m-10">-Vintrella Movers</span>
           </h1>
 
           {/* Subtext */}
