@@ -46,15 +46,14 @@ export default function ContactForm() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">(
-    "idle",
-  );
+  const [submitStatus, setSubmitStatus] = useState<
+    "idle" | "success" | "error"
+  >("idle");
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
-    if (!formData.fullName.trim())
-      newErrors.fullName = "Full name is required";
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
 
     if (!formData.contactNumber.trim()) {
       newErrors.contactNumber = "Contact number is required";
@@ -69,8 +68,7 @@ export default function ContactForm() {
     }
 
     if (!formData.materialDetails.trim())
-      newErrors.materialDetails =
-        "Please describe the items to be transported";
+      newErrors.materialDetails = "Please describe the items to be transported";
 
     if (!formData.fromLocation.trim())
       newErrors.fromLocation = "Pickup location is required";
@@ -86,7 +84,7 @@ export default function ContactForm() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -104,15 +102,19 @@ export default function ContactForm() {
     setSubmitStatus("idle");
 
     try {
-      // ✅ SAVE TO FIRESTORE IN "quoteRequests" COLLECTION
       await addDoc(collection(db, "quoteRequests"), {
         ...formData,
         submittedAt: new Date(),
       });
 
+      await fetch("/api/send-quote-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...formData }),
+      });
+
       setSubmitStatus("success");
 
-      // CLEAR FORM
       setFormData({
         fullName: "",
         contactNumber: "",
