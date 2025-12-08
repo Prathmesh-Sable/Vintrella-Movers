@@ -29,7 +29,7 @@ export default function HeroSection() {
           >
             <span className="font-serif">"We Care Your Valuables"</span>
             <br />
-            <span className="text-white text-2xl m-10">-Vintrella Movers</span>
+            <span className="text-white text-2xl ml-30">-Vintrella Movers</span>
           </h1>
 
           {/* Subtext */}
@@ -37,7 +37,8 @@ export default function HeroSection() {
             className="text-xl text-white leading-relaxed mb-8 max-w-2xl"
             style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.7)" }}
           >
-           
+           <div className="mt-66"></div>
+
           </p>
 
           {/* CTA Buttons */}
