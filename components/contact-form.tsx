@@ -170,7 +170,7 @@ export default function ContactForm() {
             id="contactNumber"
             name="contactNumber"
             type="tel"
-            placeholder="+91 98765 43210"
+            placeholder="+91 xxxxx xxxxx"
             value={formData.contactNumber}
             onChange={handleChange}
             className={errors.contactNumber ? errorInputStyles : inputStyles}
