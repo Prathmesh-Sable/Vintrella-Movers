@@ -37,8 +37,7 @@ export default function HeroSection() {
             className="text-xl text-white leading-relaxed mb-8 max-w-2xl"
             style={{ textShadow: "1px 1px 6px rgba(0,0,0,0.7)" }}
           >
-            We move your world safely and efficiently. Experience hassle-free relocation with India's most trusted
-            logistics partner.
+           
           </p>
 
           {/* CTA Buttons */}
